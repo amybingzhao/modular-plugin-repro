@@ -3,7 +3,7 @@
     <name>Modular Plugin Repro</name>
     <vendor>Test</vendor>
     <content>
-        <module name="modular-plugin-repro.common" loading="required"/>
+        <module name="modular-plugin-repro.common" loading="embedded"/>
         <module name="modular-plugin-repro.frontend"/>
         <module name="modular-plugin-repro.backend"/>
     </content>

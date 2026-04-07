@@ -32,7 +32,7 @@ dependencies {
 
         create(type, version)
 
-        pluginModule(implementation(project(":common")))
+        pluginComposedModule(implementation(project(":common")))
         pluginModule(implementation(project(":frontend")))
         pluginModule(implementation(project(":backend")))
     }
