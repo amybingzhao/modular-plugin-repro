@@ -1,10 +1,10 @@
-<idea-plugin package="com.repro.backend">
+<idea-plugin>
     <dependencies>
-        <module name="intellij.platform.backend"/>
+        <module name="intellij.platform.frontend"/>
     </dependencies>
 
     <applicationListeners>
-        <listener class="com.repro.backend.BackendActivator"
+        <listener class="com.repro.frontend.FrontendActivator"
                   topic="com.intellij.ide.AppLifecycleListener"/>
     </applicationListeners>
 </idea-plugin>

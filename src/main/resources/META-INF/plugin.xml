@@ -3,8 +3,8 @@
     <name>Modular Plugin Repro</name>
     <vendor>Test</vendor>
     <content>
-        <module name="com.repro.common" loading="required"/>
-        <module name="com.repro.frontend"/>
-        <module name="com.repro.backend"/>
+        <module name="modular-plugin-repro.common" loading="required"/>
+        <module name="modular-plugin-repro.frontend"/>
+        <module name="modular-plugin-repro.backend"/>
     </content>
 </idea-plugin>
