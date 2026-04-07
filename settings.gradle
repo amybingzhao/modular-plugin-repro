@@ -1,0 +1,5 @@
+rootProject.name = 'modular-plugin-repro'
+
+include 'common'
+include 'frontend'
+include 'backend'

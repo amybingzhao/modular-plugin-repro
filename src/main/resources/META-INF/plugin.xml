@@ -1,0 +1,10 @@
+<idea-plugin>
+    <id>com.repro.modular</id>
+    <name>Modular Plugin Repro</name>
+    <vendor>Test</vendor>
+    <content>
+        <module name="com.repro.common" loading="required"/>
+        <module name="com.repro.frontend"/>
+        <module name="com.repro.backend"/>
+    </content>
+</idea-plugin>

@@ -1,0 +1,32 @@
+plugins {
+    id "java"
+    alias(libs.plugins.kotlin)
+    id "org.jetbrains.intellij.platform.module"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(pluginJdk)
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion = JavaLanguageVersion.of(pluginJdk)
+    }
+}
+
+repositories {
+    mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
+}
+
+dependencies {
+    implementation project(":common")
+
+    intellijPlatform {
+        intellijIdeaUltimate(providers.gradleProperty('pluginIdeVersion'))
+    }
+}

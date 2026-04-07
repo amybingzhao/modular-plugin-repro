@@ -1,0 +1,62 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+
+plugins {
+    id "java"
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.intelliJPlatform)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(pluginJdk)
+    }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion = JavaLanguageVersion.of(pluginJdk)
+    }
+}
+
+repositories {
+    mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
+}
+
+dependencies {
+    intellijPlatform {
+        def type = providers.gradleProperty('pluginIdePlatform')
+        def version = providers.gradleProperty('pluginIdeVersion')
+
+        create(type, version)
+
+        pluginModule(implementation(project(":common")))
+        pluginModule(implementation(project(":frontend")))
+        pluginModule(implementation(project(":backend")))
+    }
+}
+
+intellijPlatform {
+    pluginConfiguration {
+        id = providers.gradleProperty("pluginId")
+        name = providers.gradleProperty("pluginName")
+        description = providers.gradleProperty("pluginDescription")
+
+        vendor {
+            name = providers.gradleProperty("pluginVendorName")
+            email = providers.gradleProperty("pluginVendorEmail")
+            url = providers.gradleProperty("pluginVendorUrl")
+        }
+
+        ideaVersion {
+            sinceBuild = providers.gradleProperty("pluginIdeSinceBuild")
+        }
+
+        buildSearchableOptions = false
+        instrumentCode = true
+    }
+}
+
+tasks.build.dependsOn("buildPlugin")
